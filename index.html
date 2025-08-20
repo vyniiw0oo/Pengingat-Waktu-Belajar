@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Pengingat Belajar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>⏰ Pengingat Belajar</h1>
+        <div class="timer-display">
+            <span id="minutes">00</span>:<span id="seconds">00</span>
+        </div>
+        <div class="level-selector">
+            <button id="level1" class="active">Level 1</button>
+            <button id="level2">Level 2</button>
+            <button id="level3">Level 3</button>
+        </div>
+        <p class="status-text" id="status-text">Waktunya Belajar!</p>
+        <div class="controls">
+            <button id="start-btn">Mulai</button>
+            <button id="reset-btn">Ulangi</button>
+        </div>
+        <div class="features">
+            <h3>Fitur Tambahan:</h3>
+            <ul>
+                <li>🎵 Musik Latar (Tersedia saat ini)</li>
+                <li>📝 Catatan Belajar (Tersedia saat ini)</li>
+                <li>🏅 Pencapaian (Fitur yang bisa dikembangkan)</li>
+            </ul>
+        </div>
+        <audio id="audio-player" src="alarm.mp3" preload="auto"></audio>
+        <div class="notes-section">
+            <h4>Catatan Belajar</h4>
+            <textarea id="study-notes" placeholder="Tulis catatan Anda di sini..."></textarea>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
