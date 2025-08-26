@@ -6,7 +6,13 @@ const levelButtons = document.querySelectorAll('.level-selector button');
 const statusText = document.getElementById('status-text');
 const audioPlayer = document.getElementById('audio-player');
 
-// Konfigurasi level dalam menit
+// Musik controls
+const playMusicBtn = document.getElementById('play-music');
+const pauseMusicBtn = document.getElementById('pause-music');
+const muteMusicBtn = document.getElementById('mute-music');
+const volumeControl = document.getElementById('volume-control');
+
+// Konfigurasi level (menit)
 const levels = {
     level1: { study: 25, break: 5 },
     level2: { study: 45, break: 15 },
@@ -19,7 +25,7 @@ let isStudying = true;
 let timeRemaining = levels[currentLevel].study * 60;
 let isRunning = false;
 
-// Fungsi untuk memperbarui tampilan waktu
+// Update tampilan waktu
 function updateDisplay(time) {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
@@ -27,12 +33,12 @@ function updateDisplay(time) {
     secondsDisplay.textContent = String(seconds).padStart(2, '0');
 }
 
-// Fungsi untuk memulai dan menghentikan timer
+// Timer mulai
 function startTimer() {
     if (isRunning) return;
     isRunning = true;
     startBtn.textContent = 'Jeda';
-    
+
     timer = setInterval(() => {
         timeRemaining--;
         updateDisplay(timeRemaining);
@@ -45,14 +51,14 @@ function startTimer() {
     }, 1000);
 }
 
-// Fungsi untuk menjeda timer
+// Jeda timer
 function pauseTimer() {
     clearInterval(timer);
     isRunning = false;
     startBtn.textContent = 'Lanjutkan';
 }
 
-// Fungsi untuk beralih antara sesi belajar dan istirahat
+// Ganti sesi belajar / istirahat
 function toggleSession() {
     isStudying = !isStudying;
     if (isStudying) {
@@ -68,7 +74,7 @@ function toggleSession() {
     isRunning = false;
 }
 
-// Fungsi untuk mengulang timer dari awal
+// Reset timer
 function resetTimer() {
     clearInterval(timer);
     isRunning = false;
@@ -79,12 +85,12 @@ function resetTimer() {
     startBtn.textContent = 'Mulai';
 }
 
-// Fungsi untuk memainkan suara alarm
+// Bunyi alarm
 function playAlarm() {
     audioPlayer.play();
 }
 
-// Event Listeners
+// Event listener tombol
 startBtn.addEventListener('click', () => {
     if (isRunning) {
         pauseTimer();
@@ -97,16 +103,30 @@ resetBtn.addEventListener('click', resetTimer);
 
 levelButtons.forEach(button => {
     button.addEventListener('click', (e) => {
-        // Hapus kelas 'active' dari semua tombol
         levelButtons.forEach(btn => btn.classList.remove('active'));
-        
-        // Tambahkan kelas 'active' ke tombol yang diklik
         e.target.classList.add('active');
-        
         currentLevel = e.target.id;
         resetTimer();
     });
 });
 
-// Inisialisasi tampilan awal
+// Musik controls
+playMusicBtn.addEventListener('click', () => {
+    audioPlayer.play();
+});
+
+pauseMusicBtn.addEventListener('click', () => {
+    audioPlayer.pause();
+});
+
+muteMusicBtn.addEventListener('click', () => {
+    audioPlayer.muted = !audioPlayer.muted;
+    muteMusicBtn.textContent = audioPlayer.muted ? "Unmute" : "Mute";
+});
+
+volumeControl.addEventListener('input', (e) => {
+    audioPlayer.volume = e.target.value;
+});
+
+// Inisialisasi
 updateDisplay(timeRemaining);
