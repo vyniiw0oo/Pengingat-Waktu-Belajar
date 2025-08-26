@@ -149,7 +149,7 @@ function notify(message) {
   } else if (Notification.permission !== "denied") {
     Notification.requestPermission().then(permission => {
       if (permission === "granted") new Notification(message);
-      else alert(message); // fallback kalau user menolak
+      else alert(message); // fallback
     });
   } else {
     alert(message);
