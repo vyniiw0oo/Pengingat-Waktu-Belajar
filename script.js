@@ -66,7 +66,7 @@ function pauseTimer() {
   startBtn.textContent = 'Lanjutkan';
 }
 
-// Ganti sesi belajar/istirahat
+// Sesi selesai
 function handleSessionEnd() {
   if (isStudying) {
     streak++;
@@ -120,7 +120,7 @@ function updateAchievements() {
   streakDisplay.textContent = `🔥 Streak: ${streak} hari`;
 }
 
-// Event listener timer
+// Event listener
 startBtn.addEventListener('click', () => {
   if (isRunning) pauseTimer(); else startTimer();
 });
@@ -138,10 +138,10 @@ levelButtons.forEach(btn => {
 // Inisialisasi
 updateDisplay(timeRemaining);
 
-// Fungsi notifikasi browser
+// Notifikasi browser
 function notify(message) {
   if (!("Notification" in window)) {
-    alert(message); // fallback kalau browser tidak support
+    alert(message); // fallback
     return;
   }
   if (Notification.permission === "granted") {
@@ -149,6 +149,9 @@ function notify(message) {
   } else if (Notification.permission !== "denied") {
     Notification.requestPermission().then(permission => {
       if (permission === "granted") new Notification(message);
+      else alert(message); // fallback kalau user menolak
     });
+  } else {
+    alert(message);
   }
 }
