@@ -4,11 +4,9 @@ const startBtn = document.getElementById('start-btn');
 const resetBtn = document.getElementById('reset-btn');
 const levelButtons = document.querySelectorAll('.level-selector button');
 const statusText = document.getElementById('status-text');
-const bgMusic = document.getElementById('bg-music');
 const progressBar = document.getElementById('progress-bar');
 const achievementList = document.getElementById('achievement-list');
 const streakDisplay = document.getElementById('streak-display');
-const playPauseBtn = document.getElementById('playPauseBtn');
 
 // Konfigurasi level (menit)
 const levels = {
@@ -49,11 +47,6 @@ function startTimer() {
   startBtn.textContent = 'Jeda';
   sessionDuration = isStudying ? levels[currentLevel].study * 60 : levels[currentLevel].break * 60;
 
-  // play musik
-  if (bgMusic.paused) {
-    bgMusic.play().catch(err => console.log("Musik diblokir:", err));
-  }
-
   timer = setInterval(() => {
     timeRemaining--;
     updateDisplay(timeRemaining);
@@ -78,6 +71,9 @@ function handleSessionEnd() {
   if (isStudying) {
     streak++;
     updateAchievements();
+    notify("Istirahat dulu ya! 😌");
+  } else {
+    notify("Waktunya Belajar! ⏰");
   }
   toggleSession();
 }
@@ -139,16 +135,17 @@ levelButtons.forEach(btn => {
   });
 });
 
-// Event listener Play/Pause musik
-playPauseBtn.addEventListener('click', () => {
-  if (bgMusic.paused) {
-    bgMusic.play().catch(err => console.log("Musik diblokir:", err));
-    playPauseBtn.textContent = 'Pause Musik';
-  } else {
-    bgMusic.pause();
-    playPauseBtn.textContent = 'Play Musik';
-  }
-});
-
 // Inisialisasi
 updateDisplay(timeRemaining);
+
+// Fungsi notifikasi browser
+function notify(message) {
+  if (!("Notification" in window)) return;
+  if (Notification.permission === "granted") {
+    new Notification(message);
+  } else if (Notification.permission !== "denied") {
+    Notification.requestPermission().then(permission => {
+      if (permission === "granted") new Notification(message);
+    });
+  }
+}
