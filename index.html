@@ -1,41 +1,64 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplikasi Pengingat Belajar</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aplikasi Pengingat Belajar</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>⏰ Pengingat Belajar</h1>
-        <div class="timer-display">
-            <span id="minutes">00</span>:<span id="seconds">00</span>
-        </div>
-        <div class="level-selector">
-            <button id="level1" class="active">Level 1</button>
-            <button id="level2">Level 2</button>
-            <button id="level3">Level 3</button>
-        </div>
-        <p class="status-text" id="status-text">Waktunya Belajar!</p>
-        <div class="controls">
-            <button id="start-btn">Mulai</button>
-            <button id="reset-btn">Ulangi</button>
-        </div>
-        <div class="features">
-            <h3>Fitur Tambahan:</h3>
-            <ul>
-                <li>🎵 Musik Latar (Tersedia saat ini)</li>
-                <li>📝 Catatan Belajar (Tersedia saat ini)</li>
-                <li>🏅 Pencapaian (Fitur yang bisa dikembangkan)</li>
-            </ul>
-        </div>
-        <audio id="audio-player" src="alarm.mp3" preload="auto"></audio>
-        <div class="notes-section">
-            <h4>Catatan Belajar</h4>
-            <textarea id="study-notes" placeholder="Tulis catatan Anda di sini..."></textarea>
-        </div>
+  <div class="container">
+    <h1>⏰ Pengingat Belajar</h1>
+
+    <div class="timer-display"><span id="minutes">00</span>:<span id="seconds">00</span></div>
+
+    <div class="level-selector">
+      <button id="level1" class="active">Level 1</button>
+      <button id="level2">Level 2</button>
+      <button id="level3">Level 3</button>
     </div>
-    <script src="script.js"></script>
+
+    <p class="status-text" id="status-text">Waktunya Belajar!</p>
+
+    <div class="controls">
+      <button id="start-btn">Mulai</button>
+      <button id="reset-btn">Ulangi</button>
+    </div>
+
+    <div class="features">
+      <h3>Fitur Tambahan:</h3>
+      <ul>
+        <li>🎵 Musik Latar (lo-fi, loop)</li>
+        <li>📝 Catatan Belajar</li>
+        <li>🏅 Pencapaian (bisa dikembangkan)</li>
+      </ul>
+
+      <!-- 🎵 Kontrol Musik -->
+      <div class="music-controls">
+        <button id="play-music">🎵 Putar Musik</button>
+        <button id="pause-music">⏸️ Hentikan Musik</button>
+        <button id="mute-music">🔇 Mute</button>
+        <div class="vol">
+          Volume
+          <input id="volume" type="range" min="0" max="1" step="0.01" value="0.4"/>
+        </div>
+        <span class="small">Jika tidak berbunyi, klik tombol Putar (autoplay biasanya diblokir).</span>
+      </div>
+    </div>
+
+    <!-- Musik latar -->
+    <audio id="audio-player"
+           src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+           preload="auto"
+           loop></audio>
+
+    <div class="notes-section">
+      <h4>Catatan Belajar</h4>
+      <textarea id="study-notes" placeholder="Tulis catatan Anda di sini..."></textarea>
+      <p class="small">Tips: catat target singkat sebelum sesi dimulai, lalu checklist setelah selesai.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
