@@ -73,7 +73,7 @@ function handleSessionEnd() {
     updateAchievements();
     notify("Istirahat dulu ya! 😌");
   } else {
-    notify("Waktunya Belajar! ⏰");
+    notify("Waktunya Belajar lagi! ⏰");
   }
   toggleSession();
 }
@@ -140,7 +140,10 @@ updateDisplay(timeRemaining);
 
 // Fungsi notifikasi browser
 function notify(message) {
-  if (!("Notification" in window)) return;
+  if (!("Notification" in window)) {
+    alert(message); // fallback kalau browser tidak support
+    return;
+  }
   if (Notification.permission === "granted") {
     new Notification(message);
   } else if (Notification.permission !== "denied") {
