@@ -1,153 +1,117 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #f7f1e3; /* Kuning muda pastel */
-    color: #4a4a4a;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f7f1e3; /* pastel kuning muda */
+  color: #4a4a4a;
 }
 
 .container {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 90%;
-    max-width: 500px;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
 }
 
 h1 {
-    font-size: 2.5em;
-    color: #a77085; /* Merah muda pastel */
+  font-size: 2.5em;
+  color: #a77085; /* pastel pink tua */
 }
 
 .timer-display {
-    font-size: 5em;
-    font-weight: bold;
-    margin: 20px 0;
-    color: #6a6a6a;
+  font-size: 5em;
+  font-weight: bold;
+  margin: 20px 0;
+  color: #6a6a6a;
+}
+
+.progress-container {
+  width: 100%;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  margin: 15px 0;
+  overflow: hidden;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #70b1a7;
+  transition: width 1s linear;
 }
 
 .level-selector button {
-    background-color: #e0b1cb; /* Merah muda pastel lebih gelap */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 15px;
-    margin: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s;
+  background-color: #e0b1cb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
 }
 
-.level-selector button:hover {
-    background-color: #d19ec5;
-}
-
-.level-selector button.active {
-    background-color: #a77085;
-}
+.level-selector button:hover { background-color: #d19ec5; }
+.level-selector button.active { background-color: #a77085; }
 
 .status-text {
-    font-size: 1.2em;
-    margin: 20px 0;
-    color: #727272;
+  font-size: 1.2em;
+  margin: 20px 0;
+  color: #727272;
 }
 
 .controls button {
-    background-color: #70b1a7; /* Hijau pastel */
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 25px;
-    margin: 10px;
-    cursor: pointer;
-    font-size: 1.1em;
-    font-weight: bold;
-    transition: background-color 0.3s;
+  background-color: #70b1a7;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
+.controls button:hover { background-color: #65a098; }
 
-.controls button:hover {
-    background-color: #65a098;
-}
-
-.features {
-    margin-top: 30px;
-    text-align: left;
-    background-color: #f0f8ff; /* Biru muda pastel */
-    padding: 20px;
-    border-radius: 15px;
-}
-
-.features ul {
-    list-style: none;
-    padding: 0;
-}
-
-.features li {
-    margin-bottom: 5px;
-    color: #555;
-}
-
-/* 🎵 Musik Controls */
 .music-controls {
-    margin-top: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
-}
-
-.music-controls button {
-    background-color: #e0b1cb;
-    border: none;
-    border-radius: 10px;
-    padding: 8px 15px;
-    cursor: pointer;
-    font-size: 0.9em;
-    color: white;
-    transition: background-color 0.3s;
-}
-
-.music-controls button:hover {
-    background-color: #d19ec5;
-}
-
-.music-controls .vol {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #555;
-    font-size: 0.9em;
-}
-
-.music-controls input[type="range"] {
-    accent-color: #a77085; /* warna slider */
-}
-
-.small {
-    font-size: 0.8em;
-    color: #777;
-    margin-top: 5px;
-    display: block;
+  margin-top: 20px;
 }
 
 .notes-section {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 textarea#study-notes {
-    width: 100%;
-    height: 100px;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    font-size: 1em;
-    resize: vertical;
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  resize: vertical;
 }
 
-/* Optional: Google Fonts */
+.achievements {
+  margin-top: 20px;
+  text-align: left;
+  background-color: #f0f8ff;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+#streak-display {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #d2691e;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
