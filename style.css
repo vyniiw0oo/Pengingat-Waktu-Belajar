@@ -5,153 +5,63 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  background-color: #f7f1e3; /* Kuning muda pastel */
+  background: linear-gradient(-45deg, #f7f1e3, #c2f0f0, #f7f1e3, #c2f0f0);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
   color: #4a4a4a;
 }
 
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
 .container {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.95);
   padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
   text-align: center;
   width: 90%;
   max-width: 500px;
+  backdrop-filter: blur(10px);
 }
 
-h1 {
-  font-size: 2.5em;
-  color: #a77085; /* Merah muda pastel */
-}
+h1 { font-size: 2.5em; color: #a77085; }
 
 .timer-display {
-  font-size: 5em;
-  font-weight: bold;
-  margin: 20px 0;
-  color: #6a6a6a;
+  font-size: 5em; font-weight: bold; margin: 20px 0; color: #6a6a6a;
 }
 
 .progress-container {
-  width: 100%;
-  height: 12px;
-  background-color: #ddd;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  overflow: hidden;
+  width: 100%; height: 12px; background-color: #ddd; border-radius: 10px; margin-bottom: 20px; overflow: hidden;
 }
 
-#progress-bar {
-  height: 100%;
-  width: 0%;
-  background-color: #70b1a7;
-  transition: width 0.5s linear;
-}
+#progress-bar { height: 100%; width: 0%; background-color: #70b1a7; transition: width 0.5s linear; }
 
 .level-selector button {
-  background-color: #e0b1cb;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 15px;
-  margin: 5px;
-  cursor: pointer;
-  font-size: 1em;
-  transition: background-color 0.3s;
+  background-color: #e0b1cb; color: white; border: none; padding: 10px 20px;
+  border-radius: 15px; margin: 5px; cursor: pointer; font-size: 1em; transition: background-color 0.3s, transform 0.2s;
 }
+.level-selector button:hover { background-color: #d19ec5; transform: scale(1.05); }
+.level-selector button.active { background-color: #a77085; }
 
-.level-selector button:hover {
-  background-color: #d19ec5;
-}
-
-.level-selector button.active {
-  background-color: #a77085;
-}
-
-.status-text {
-  font-size: 1.2em;
-  margin: 20px 0;
-  color: #727272;
-}
+.status-text { font-size: 1.2em; margin: 20px 0; color: #727272; }
 
 .controls button {
-  background-color: #70b1a7;
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  border-radius: 25px;
-  margin: 10px;
-  cursor: pointer;
-  font-size: 1.1em;
-  font-weight: bold;
-  transition: background-color 0.3s;
+  background-color: #70b1a7; color: white; border: none; padding: 15px 30px;
+  border-radius: 25px; margin: 10px; cursor: pointer; font-size: 1.1em; font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
 }
+.controls button:hover { background-color: #65a098; transform: scale(1.05); }
 
-.controls button:hover {
-  background-color: #65a098;
-}
+.features { margin-top: 30px; text-align: left; background-color: #f0f8ff; padding: 20px; border-radius: 15px; }
+.features ul { list-style: none; padding: 0; }
+.features li { margin-bottom: 5px; color: #555; }
 
-.features {
-  margin-top: 30px;
-  text-align: left;
-  background-color: #f0f8ff;
-  padding: 20px;
-  border-radius: 15px;
-}
+.notes-section { margin-top: 20px; }
+textarea#study-notes { width: 100%; height: 100px; padding: 10px; border-radius: 10px; border: 1px solid #ccc; font-size: 1em; resize: vertical; }
 
-.features ul {
-  list-style: none;
-  padding: 0;
-}
-
-.features li {
-  margin-bottom: 5px;
-  color: #555;
-}
-
-.notes-section {
-  margin-top: 20px;
-}
-
-textarea#study-notes {
-  width: 100%;
-  height: 100px;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 1em;
-  resize: vertical;
-}
-
-.achievements {
-  margin-top: 20px;
-  background-color: #fff8dc;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: left;
-}
-
-#streak-display {
-  margin-top: 10px;
-  font-weight: bold;
-  color: #b87333;
-}
-
-/* Tombol Play/Pause Musik */
-.audio-controls {
-  margin: 20px 0;
-}
-
-.audio-controls button {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  background-color: #6c63ff;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.audio-controls button:hover {
-  background-color: #574fd6;
-}
+.achievements { margin-top: 20px; background-color: #fff8dc; padding: 15px; border-radius: 10px; text-align: left; }
+#streak-display { margin-top: 10px; font-weight: bold; color: #b87333; }
