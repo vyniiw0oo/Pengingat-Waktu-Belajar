@@ -8,6 +8,7 @@ const bgMusic = document.getElementById('bg-music');
 const progressBar = document.getElementById('progress-bar');
 const achievementList = document.getElementById('achievement-list');
 const streakDisplay = document.getElementById('streak-display');
+const playPauseBtn = document.getElementById('playPauseBtn');
 
 // Konfigurasi level (menit)
 const levels = {
@@ -123,7 +124,7 @@ function updateAchievements() {
   streakDisplay.textContent = `🔥 Streak: ${streak} hari`;
 }
 
-// Event listener
+// Event listener timer
 startBtn.addEventListener('click', () => {
   if (isRunning) pauseTimer(); else startTimer();
 });
@@ -136,6 +137,17 @@ levelButtons.forEach(btn => {
     currentLevel = e.target.id;
     resetTimer();
   });
+});
+
+// Event listener Play/Pause musik
+playPauseBtn.addEventListener('click', () => {
+  if (bgMusic.paused) {
+    bgMusic.play().catch(err => console.log("Musik diblokir:", err));
+    playPauseBtn.textContent = 'Pause Musik';
+  } else {
+    bgMusic.pause();
+    playPauseBtn.textContent = 'Play Musik';
+  }
 });
 
 // Inisialisasi
