@@ -14,11 +14,13 @@
     <div class="timer-display">
       <span id="minutes">00</span>:<span id="seconds">00</span>
     </div>
+
+    <!-- Progress bar -->
     <div class="progress-container">
       <div id="progress-bar"></div>
     </div>
 
-    <!-- Level -->
+    <!-- Pilih Level -->
     <div class="level-selector">
       <button id="level1" class="active">Level 1</button>
       <button id="level2">Level 2</button>
@@ -28,24 +30,28 @@
     <!-- Status -->
     <p class="status-text" id="status-text">Waktunya Belajar!</p>
 
-    <!-- Kontrol -->
+    <!-- Kontrol Timer -->
     <div class="controls">
       <button id="start-btn">Mulai</button>
       <button id="reset-btn">Ulangi</button>
     </div>
 
-    <!-- Musik -->
-    <div class="music-controls">
-      <h4>🎵 Musik Latar</h4>
-      <audio id="bg-music" controls loop>
-        <source src="https://cdn.pixabay.com/download/audio/2022/10/09/audio_3d7b1f9e6f.mp3?filename=calm-piano-ambient-124477.mp3" type="audio/mp3">
-        Browser Anda tidak mendukung audio.
-      </audio>
+    <!-- Fitur -->
+    <div class="features">
+      <h3>Fitur Tambahan:</h3>
+      <ul>
+        <li>🎵 Musik Latar (Tenang & fokus)</li>
+        <li>📝 Catatan Belajar</li>
+        <li>🏅 Pencapaian & Streak</li>
+      </ul>
     </div>
+
+    <!-- Musik Latar -->
+    <audio id="bg-music" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c5b6b7e46a.mp3?filename=calm-piano-140997.mp3" loop></audio>
 
     <!-- Catatan -->
     <div class="notes-section">
-      <h4>📝 Catatan Belajar</h4>
+      <h4>Catatan Belajar</h4>
       <textarea id="study-notes" placeholder="Tulis catatan Anda di sini..."></textarea>
     </div>
 
