@@ -135,3 +135,23 @@ textarea#study-notes {
   font-weight: bold;
   color: #b87333;
 }
+
+/* Tombol Play/Pause Musik */
+.audio-controls {
+  margin: 20px 0;
+}
+
+.audio-controls button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #6c63ff;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.audio-controls button:hover {
+  background-color: #574fd6;
+}
